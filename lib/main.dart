@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_training/area_package/screens/area_home_screen.dart';
 import 'package:flutter_training/futures/logic/cubits/files_cubit/files_cubit.dart';
 import 'package:flutter_training/futures/logic/cubits/theme_cubit/theme_cubit.dart';
 import 'package:flutter_training/futures/view/screens/files_app/files_home.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
                 scaffoldBackgroundColor: Colors.brown,
               ),
               themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
-              home: const PasswordScreen(),
+              home: const AreaHomeScreen(),
             );
           }
           return Container();
