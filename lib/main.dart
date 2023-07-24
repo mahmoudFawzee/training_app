@@ -3,9 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_training/area_package/screens/area_home_screen.dart';
 import 'package:flutter_training/futures/logic/cubits/files_cubit/files_cubit.dart';
 import 'package:flutter_training/futures/logic/cubits/theme_cubit/theme_cubit.dart';
-import 'package:flutter_training/futures/view/screens/files_app/files_home.dart';
-import 'package:flutter_training/futures/view/screens/files_app/password_screen.dart';
-import 'package:flutter_training/futures/view/screens/pizza_app/pizza_home_screen.dart';
+import 'package:flutter_training/work_with_pagination/logic/blocs/bloc/passengers_bloc.dart';
+import 'package:flutter_training/work_with_pagination/view/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +40,11 @@ class MyApp extends StatelessWidget {
                 scaffoldBackgroundColor: Colors.brown,
               ),
               themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
-              home: const AreaHomeScreen(),
+              home: BlocProvider(
+                create: (context) => PassengersBloc()
+                  ..add(const GetPassengersEvent(isFirstCall: true)),
+                child: const PassengersHomeScreen(),
+              ),
             );
           }
           return Container();
