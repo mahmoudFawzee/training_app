@@ -11,6 +11,10 @@ class PassengersInitial extends PassengersState {
   const PassengersInitial();
 }
 
+class PassengersLoadingState extends PassengersState {
+  const PassengersLoadingState();
+}
+
 class GotPassengersState extends PassengersState {
   final List<Passenger> passengers;
   const GotPassengersState({required this.passengers});

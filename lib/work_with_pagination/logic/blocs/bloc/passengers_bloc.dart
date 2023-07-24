@@ -1,9 +1,5 @@
-import 'dart:developer';
-
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_training/futures/logic/cubits/password_cubit/password_cubit.dart';
 import 'package:flutter_training/work_with_pagination/data/models/passenger.dart';
 import 'package:flutter_training/work_with_pagination/data/service/passengers_service.dart';
 
@@ -12,7 +8,7 @@ part 'passengers_state.dart';
 
 class PassengersBloc extends Bloc<PassengersEvent, PassengersState> {
   static final List<Passenger> _passengers = [];
-  PassengersBloc() : super(const PassengersInitial()) {
+  PassengersBloc() : super(const PassengersLoadingState()) {
     on<GetPassengersEvent>((event, emit) async {
       if (event.isFirstCall) _passengers.clear();
       final result =

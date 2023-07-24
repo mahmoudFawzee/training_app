@@ -58,7 +58,11 @@ class _PassengersHomeScreenState extends State<PassengersHomeScreen> {
               return current is! PassengersInitial;
             },
             builder: (context, state) {
-              if (state is PassengersErrorState) {
+             if (state is PassengersLoadingState) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is PassengersErrorState) {
                 return const Center(
                   child: Text('some error ocurred'),
                 );
